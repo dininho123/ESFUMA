@@ -141,11 +141,68 @@ body {
 }
 
 footer {
-    background: #222;
+    background: #111827;
+    color: #9ca3af;
+    padding: 60px 20px 0;
+    margin-top: 0;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #27ae60, #f1c40f, #27ae60);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+}
+
+.footer-col h4 {
     color: white;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.footer-col p {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.footer-col a {
+    color: #6b7280;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: #27ae60;
+}
+
+.footer-bottom {
+    border-top: 1px solid #1f2937;
     text-align: center;
-    padding: 10px;
-    margin-top: 40px;
+    padding: 18px 20px;
+    font-size: 13px;
+    color: #4b5563;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .btn {
@@ -250,11 +307,63 @@ footer {
 .sobre h3 {
     font-size: 32px;
     margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 14px;
+    display: inline-block;
+}
+
+.sobre h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #27ae60, #f1c40f);
+    border-radius: 2px;
 }
 
 .sobre p {
     font-size: 18px;
     color: #555;
+}
+
+.sobre-lead {
+    font-size: 17px !important;
+    color: #555 !important;
+    line-height: 1.8 !important;
+    margin-bottom: 30px !important;
+}
+
+.sobre-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-num {
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+    color: #27ae60;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
 }
 
 .sobre-grid {
@@ -284,7 +393,22 @@ footer {
 
 .treinos h3 {
     font-size: 32px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 14px;
+    display: inline-block;
+}
+
+.treinos h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #27ae60, #f1c40f);
+    border-radius: 2px;
 }
 
 .cards {
@@ -509,6 +633,98 @@ footer {
 .info a:hover {
     color: #1e8449;
     text-decoration: underline;
+}
+
+/* ======================
+   CONTACTO REDESIGN
+   ====================== */
+.contacto h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 14px;
+    display: inline-block;
+}
+
+.contacto h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #27ae60, #f1c40f);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    color: #999;
+    font-size: 15px;
+    margin: 8px 0 40px;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 0 0 40px;
+}
+
+.contacto-card {
+    background: white;
+    padding: 32px 20px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 3px solid #27ae60;
+}
+
+.contacto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.contacto-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, #2ecc71, #1e8449);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 20px;
+}
+
+.contacto-card h4 {
+    font-size: 11px;
+    font-weight: 700;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 0 0 8px;
+}
+
+.contacto-card a {
+    color: #2f3640;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contacto-card a:hover {
+    color: #27ae60;
+}
+
+.contacto-card p {
+    color: #555;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.5;
 }
 
 .whatsapp {
@@ -889,5 +1105,22 @@ footer {
         justify-content: center;
         margin-top: 8px;
         font-size: 15px;
+    }
+
+    /* Contacto grid */
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    /* Stats */
+    .sobre-stats {
+        gap: 20px;
+        justify-content: center;
     }
 }

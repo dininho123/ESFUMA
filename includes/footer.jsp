@@ -1,7 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <footer>
-    <p>© ESFUMA - EScola de FUtebol da MAdeira - Desde 1998</p>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>ESFUMA</h4>
+            <p>EScola de FUtebol da MAdeira.<br>Formando homens, atletas e campeões desde 1998.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Links</h4>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Missão</a>
+            <a href="#treinos">Escalões</a>
+            <a href="#contactos">Contactos</a>
+        </div>
+        <div class="footer-col">
+            <h4>Contacto</h4>
+            <a href="tel:912562328">912 562 328</a>
+            <a href="mailto:esfuminha@gmail.com">esfuminha@gmail.com</a>
+            <p>Caminho do Pilar, Funchal</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 ESFUMA &middot; Todos os direitos reservados</p>
+    </div>
 </footer>
 
 <div class="social-container">
