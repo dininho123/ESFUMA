@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <footer>
     <p>© ESFUMA - EScola de FUtebol da MAdeira - Desde 1998</p>
 </footer>
