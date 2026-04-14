@@ -107,6 +107,32 @@ document.querySelectorAll('.card').forEach(card => {
 });
 
 // ======================
+// COUNTER ANIMATION
+// ======================
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-target'));
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function tick(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            el.textContent = prefix + Math.round(ease * target) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObserver.observe(el));
+
+// ======================
 // REVEAL ANIMATION
 // ======================
 const reveals = document.querySelectorAll('.reveal');

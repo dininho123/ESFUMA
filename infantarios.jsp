@@ -73,24 +73,32 @@
 <section class="contacto reveal" id="contactos">
     <div class="container">
         <h3>Contactos</h3>
+        <p class="section-subtitle">Estamos aqui para ti. Entra em contacto connosco.</p>
 
-        <p class="info">
-            📞 <span>Telemóvel:</span>
-            <a href="tel:912562328">912 562 328</a>
-        </p>
+        <div class="contacto-grid">
 
-        <p class="info">
-            📧 <span>Email:</span>
-            <a href="mailto:esfuminha@gmail.com">esfuminha@gmail.com</a>
-        </p>
+            <div class="contacto-card">
+                <div class="contacto-icon"><i class="fas fa-phone"></i></div>
+                <h4>Telemóvel</h4>
+                <a href="tel:912562328">912 562 328</a>
+            </div>
 
-        <p class="info">
-            📍 <span>Morada:</span>
-            Caminho do Pilar, Funchal @ Madeira
-        </p>
+            <div class="contacto-card">
+                <div class="contacto-icon"><i class="fas fa-envelope"></i></div>
+                <h4>Email</h4>
+                <a href="mailto:esfuminha@gmail.com">esfuminha@gmail.com</a>
+            </div>
+
+            <div class="contacto-card">
+                <div class="contacto-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h4>Morada</h4>
+                <p>Caminho do Pilar<br>Funchal, Madeira</p>
+            </div>
+
+        </div>
 
         <a href="https://wa.me/351912562328" class="btn whatsapp">
-            Falar no WhatsApp
+            <i class="fab fa-whatsapp"></i> Falar no WhatsApp
         </a>
     </div>
 </section>

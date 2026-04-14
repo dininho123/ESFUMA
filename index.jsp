@@ -25,15 +25,15 @@
             </p>
             <div class="sobre-stats">
                 <div class="stat">
-                    <span class="stat-num">+200</span>
+                    <span class="stat-num" data-target="200" data-prefix="+">+200</span>
                     <span class="stat-label">Atletas</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-num">11</span>
+                    <span class="stat-num" data-target="11">11</span>
                     <span class="stat-label">Escalões</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-num">25+</span>
+                    <span class="stat-num" data-target="25" data-suffix="+">25+</span>
                     <span class="stat-label">Anos</span>
                 </div>
             </div>
@@ -192,13 +192,14 @@
             <div class="treinos-right">
 
                 <div class="extra-card">
+                    <div class="extra-card-icon"><i class="fas fa-child"></i></div>
                     <h4>Esfuma Infantários</h4>
                     <p>Para os mais pequenos começarem no futebol de forma divertida.</p>
-                    <%-- PHP: href="infantarios.php" → JSP: href="infantarios.jsp" --%>
                     <a href="infantarios.jsp" class="btn">Saber mais</a>
                 </div>
 
                 <div class="extra-card">
+                    <div class="extra-card-icon"><i class="fas fa-person-walking"></i></div>
                     <h4>Esfuma Walking Football</h4>
                     <p>Futebol adaptado para adultos e convívio saudável.</p>
                     <a href="#" class="btn">Saber mais</a>

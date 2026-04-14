@@ -9,8 +9,9 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>ESFUMA</title>
-    <link rel="stylesheet" href="css/style.css?v=1.2">
+    <meta name="description" content="ESFUMA — EScola de FUtebol da MAdeira. Formação desportiva para jovens dos 3 aos 19 anos em Funchal, Madeira.">
+    <title>ESFUMA — EScola de FUtebol da MAdeira</title>
+    <link rel="stylesheet" href="css/style.css?v=2.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
