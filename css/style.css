@@ -300,17 +300,19 @@ footer {
 
 .card {
     background: white;
-    border-radius: 10px;
+    border-radius: 12px;
     border-top: 4px solid #f1c40f;
     text-align: center;
 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
 
     cursor: pointer;
     padding: 20px;
-    
-    transition: all 0.3s ease;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     grid-column: span 2;
+
+    position: relative;
 }
 
 .card:nth-last-child(2) {
@@ -322,43 +324,69 @@ footer {
 }
 
 .card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.12);
 }
 
+.card.active {
+    border-top-color: #27ae60;
+    box-shadow: 0 8px 24px rgba(39,174,96,0.15);
+}
+
+/* Seta indicadora no canto superior direito */
 .card-header {
     text-align: center;
     font-size: 20px;
     font-weight: bold;
     color: #27ae60;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.card-header::after {
+    content: '›';
+    font-size: 20px;
+    color: #ccc;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.card.active .card-header::after {
+    transform: rotate(90deg);
+    color: #27ae60;
 }
 
 .card-content {
     text-align: left;
-    padding-top: 10px;
-
+    padding-top: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease;
+    /* transição mais suave com cubic-bezier */
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                padding-top 0.3s ease;
+}
+
+.card.active .card-content {
+    max-height: 320px;
+    padding-top: 12px;
 }
 
 .card-content .label {
-    font-size: 12px;
-    font-weight: bold;
-    color: #666;
-    margin-top: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
 }
 
 .card-content .value {
     font-size: 14px;
     color: #333;
-    margin: 2px 0;
-}
-
-/* quando abre */
-.card.active .card-content {
-    max-height: 300px;
+    margin: 3px 0;
 }
 
 .ano {
