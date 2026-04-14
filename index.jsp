@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%-- PHP: include("includes/functions.php") --%>
 <%@ include file="/includes/functions.jsp" %>
+<%@ include file="/includes/db.jsp" %>
 
 <%-- PHP: include("includes/header.php") --%>
 <%@ include file="/includes/header.jsp" %>
@@ -32,7 +32,7 @@
                     <span class="stat-label">Atletas</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-num" data-target="11">11</span>
+                    <span class="stat-num" data-target="13">13</span>
                     <span class="stat-label">Escalões</span>
                 </div>
                 <div class="stat">
@@ -59,126 +59,55 @@
                 <div class="cards">
 
                 <%
-                    // PHP: $escalaos = [ [...], [...], ... ];
-                    // Em Java criamos um array de objectos Escalao
-                    Escalao[] escalaos = {
-                        new Escalao("Sub-6", 6,
-                            new String[]{"Afonso Azevedo", "Francisco Sombreireiro"},
-                            new Treino[]{
-                                new Treino("Segunda", "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quarta",  "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Sub-7", 7,
-                            new String[]{"Treinador A", "Treinador B"},
-                            new Treino[]{
-                                new Treino("Terça",   "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Sábado",  "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Sub-8", 8,
-                            new String[]{"Treinador C", "Treinador D"},
-                            new Treino[]{
-                                new Treino("Quarta",  "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Sábado",  "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Sub-9", 9,
-                            new String[]{"Treinador E", "Treinador F"},
-                            new Treino[]{
-                                new Treino("Terça",   "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Sábado",  "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Sub-10", 10,
-                            new String[]{"Treinador G", "Treinador H"},
-                            new Treino[]{
-                                new Treino("Segunda", "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quinta",  "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Sub-11", 11,
-                            new String[]{"João Pedro Ramos"},
-                            new Treino[]{
-                                new Treino("Segunda", "19h00 - 20h15", "Liceu Jaime Moniz"),
-                                new Treino("Quinta",  "18h40 - 19h50", "Escola da Ajuda")
-                            }
-                        ),
-                        new Escalao("Sub-12", 12,
-                            new String[]{"Treinador K", "Treinador L"},
-                            new Treino[]{
-                                new Treino("Terça",   "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quarta",  "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quinta",  "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Sub-13", 13,
-                            new String[]{"Treinador M", "Treinador N"},
-                            new Treino[]{
-                                new Treino("Terça",   "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quarta",  "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quinta",  "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Iniciados", 15,
-                            new String[]{"Treinador O", "Treinador P"},
-                            new Treino[]{
-                                new Treino("Terça",   "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quarta",  "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Sexta",   "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Juvenis", 17,
-                            new String[]{"Treinador Q", "Treinador R"},
-                            new Treino[]{
-                                new Treino("Segunda", "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quarta",  "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Sexta",   "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        ),
-                        new Escalao("Juniores", 19,
-                            new String[]{"Treinador S", "Treinador T"},
-                            new Treino[]{
-                                new Treino("Segunda", "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Quarta",  "19h00 - 20h00", "Campo ESFUMA"),
-                                new Treino("Sexta",   "19h00 - 20h00", "Campo ESFUMA")
-                            }
-                        )
-                    };
+                    Connection conn = getConnection();
 
-                    // PHP: usort($escalaos, fn($a,$b) => $a["idade"] <=> $b["idade"]);
-                    java.util.Arrays.sort(escalaos, (a, b) -> a.idade - b.idade);
+                    PreparedStatement psEscalaos = conn.prepareStatement(
+                        "SELECT id, nome, idade_max FROM escaloes WHERE ativo = 1 ORDER BY idade_max ASC"
+                    );
+                    ResultSet rsEscalaos = psEscalaos.executeQuery();
 
-                    // PHP: foreach ($escalaos as $escalao):
-                    for (Escalao escalao : escalaos) {
+                    while (rsEscalaos.next()) {
+                        int    escalaoId   = rsEscalaos.getInt("id");
+                        String nomeEscalao = rsEscalaos.getString("nome");
+                        int    idadeMax    = rsEscalaos.getInt("idade_max");
+
+                        // Treinadores deste escalão
+                        PreparedStatement psTrein = conn.prepareStatement(
+                            "SELECT t.nome FROM treinadores t " +
+                            "JOIN escalao_treinador et ON t.id = et.treinador_id " +
+                            "WHERE et.escalao_id = ?"
+                        );
+                        psTrein.setInt(1, escalaoId);
+                        ResultSet rsTrein = psTrein.executeQuery();
+                        java.util.List<String> treinadores = new java.util.ArrayList<>();
+                        while (rsTrein.next()) treinadores.add(rsTrein.getString("nome"));
+                        rsTrein.close(); psTrein.close();
+
+                        // Horários deste escalão
+                        PreparedStatement psTreinos = conn.prepareStatement(
+                            "SELECT dia, hora, local FROM treinos WHERE escalao_id = ?"
+                        );
+                        psTreinos.setInt(1, escalaoId);
+                        ResultSet rsTreinos = psTreinos.executeQuery();
                 %>
 
                     <div class="card">
-                        <%-- PHP: <?= htmlspecialchars($escalao["nome"]) ?> --%>
-                        <div class="card-header"><%= escalao.nome %></div>
+                        <div class="card-header"><%= nomeEscalao %></div>
 
                         <div class="card-content">
 
-                            <p class="ano">
-                                <%-- PHP: Nascidos em <?= anoNascimentoEscalao($escalao["idade"]) ?> --%>
-                                Nascidos em <%= anoNascimentoEscalao(escalao.idade) %>
-                            </p>
+                            <p class="ano">Nascidos em <%= anoNascimentoEscalao(idadeMax) %></p>
 
                             <p class="label">Treinadores</p>
-                            <p class="value">
-                                <%-- PHP: implode(", ", $escalao["treinadores"]) --%>
-                                <%= String.join(", ", escalao.treinadores) %>
-                            </p>
+                            <p class="value"><%= String.join(", ", treinadores) %></p>
 
                             <p class="label">Horários</p>
-
                             <ul class="horarios">
-                                <%-- PHP: foreach ($escalao["treinos"] as $treino): --%>
-                                <% for (Treino treino : escalao.treinos) { %>
+                                <% while (rsTreinos.next()) { %>
                                     <li>
-                                        <span class="dia"><%= treino.dia %></span>
-                                        <span class="hora"><%= treino.hora %></span>
-                                        <span class="local"><%= treino.local %></span>
+                                        <span class="dia"><%=  rsTreinos.getString("dia")   %></span>
+                                        <span class="hora"><%= rsTreinos.getString("hora")  %></span>
+                                        <span class="local"><%= rsTreinos.getString("local") %></span>
                                     </li>
                                 <% } %>
                             </ul>
@@ -186,7 +115,13 @@
                         </div>
                     </div>
 
-                <% } // fim foreach %>
+                <%
+                        rsTreinos.close(); psTreinos.close();
+                    } // fim while escalões
+
+                    rsEscalaos.close(); psEscalaos.close();
+                    conn.close();
+                %>
 
                 </div>
             </div>

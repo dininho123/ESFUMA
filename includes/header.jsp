@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
     String nomePagina = request.getServletPath().replace("/", "").replace(".jsp", "");
-
-    java.util.Map<String, String> breadcrumbs = new java.util.LinkedHashMap<>();
-    breadcrumbs.put("infantarios", "Infantários");
 %>
 <!DOCTYPE html>
 <html lang="pt">
@@ -34,53 +31,82 @@
 <header class="header">
 
     <div class="logo">
-        <img src="img/logo_escola_1.png" alt="ESFUMA">
+        <a href="<%= (nomePagina.equals("index") || nomePagina.isEmpty()) ? "#inicio" : "index.jsp" %>">
+            <img src="img/logo_escola_1.png" alt="ESFUMA">
+        </a>
         <div class="logo-texto">
             <h1>SITE OFICIAL</h1>
         </div>
     </div>
 
-    <% if (!nomePagina.equals("index") && breadcrumbs.containsKey(nomePagina)) { %>
-        <div class="breadcrumb">
-            <a href="index.jsp">Início</a>
-            <span>›</span>
-            <span class="current"><%= breadcrumbs.get(nomePagina) %></span>
+    <!-- Tudo à direita -->
+    <div class="header-right">
+
+        <!-- Menu de páginas -->
+        <div class="pages-menu">
+            <button class="pages-btn" id="pages-btn" aria-label="Navegar entre páginas">
+                <i class="fas fa-bars"></i>
+                <span><%= nomePagina.equals("infantarios") ? "Infantários" : "Início" %></span>
+                <i class="fas fa-chevron-down pages-chevron"></i>
+            </button>
+            <div class="pages-dropdown" id="pages-dropdown">
+                <a href="index.jsp" class="pages-item <%= (nomePagina.equals("index") || nomePagina.isEmpty()) ? "current" : "" %>">
+                    <div class="pages-item-icon"><i class="fas fa-home"></i></div>
+                    <div class="pages-item-text">
+                        <span>Início</span>
+                        <small>Página principal</small>
+                    </div>
+                    <% if (nomePagina.equals("index") || nomePagina.isEmpty()) { %><i class="fas fa-check pages-item-check"></i><% } %>
+                </a>
+                <a href="infantarios.jsp" class="pages-item <%= nomePagina.equals("infantarios") ? "current" : "" %>">
+                    <div class="pages-item-icon"><i class="fas fa-child"></i></div>
+                    <div class="pages-item-text">
+                        <span>Infantários</span>
+                        <small>ESFUMA Infantários</small>
+                    </div>
+                    <% if (nomePagina.equals("infantarios")) { %><i class="fas fa-check pages-item-check"></i><% } %>
+                </a>
+            </div>
         </div>
-    <% } %>
 
-    <!-- Menu desktop -->
-    <nav class="menu">
-    <% if (nomePagina.equals("index") || nomePagina.isEmpty()) { %>
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Missão</a>
-        <a href="#treinos">Escalões</a>
-        <a href="#contactos">Contactos</a>
-    <% } else { %>
-        <a href="index.jsp">Início</a>
-        <a href="index.jsp#treinos">Escalões</a>
-        <a href="#contactos">Contactos</a>
-    <% } %>
-    </nav>
+        <!-- Separador vertical -->
+        <div class="header-sep"></div>
 
-    <!-- Botão hamburger (só aparece em mobile) -->
-    <button class="hamburger" id="hamburger" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+        <!-- Atalhos às secções -->
+        <nav class="menu">
+        <% if (nomePagina.equals("index") || nomePagina.isEmpty()) { %>
+            <a href="#sobre">Missão</a>
+            <a href="#treinos">Escalões</a>
+            <a href="#contactos">Contactos</a>
+        <% } else if (nomePagina.equals("infantarios")) { %>
+            <a href="#infantarios">Infantários</a>
+            <a href="#contactos">Contactos</a>
+        <% } %>
+        </nav>
+
+        <!-- Botão hamburger (mobile) -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
 
 </header>
 
 <!-- Menu mobile (fora do header para ficar abaixo dele) -->
 <nav class="menu-mobile" id="menu-mobile">
     <% if (nomePagina.equals("index") || nomePagina.isEmpty()) { %>
-        <a href="#inicio">Início</a>
         <a href="#sobre">Missão</a>
         <a href="#treinos">Escalões</a>
         <a href="#contactos">Contactos</a>
-    <% } else { %>
-        <a href="index.jsp">Início</a>
-        <a href="index.jsp#treinos">Escalões</a>
+    <% } else if (nomePagina.equals("infantarios")) { %>
+        <a href="#infantarios">Infantários</a>
         <a href="#contactos">Contactos</a>
     <% } %>
+    <div class="menu-mobile-divider"></div>
+    <p class="menu-mobile-pages-title">Páginas</p>
+    <a href="index.jsp"       class="<%= (nomePagina.equals("index") || nomePagina.isEmpty()) ? "current" : "" %>"><i class="fas fa-home"></i> Início</a>
+    <a href="infantarios.jsp" class="<%= nomePagina.equals("infantarios") ? "current" : "" %>"><i class="fas fa-child"></i> Infantários</a>
 </nav>

@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2024 ESFUMA &middot; Todos os direitos reservados</p>
+        <p>© ESFUMA &middot; EScola de FUtebol da MAdeira - Desde 1998</p>
     </div>
 </footer>
 
@@ -78,6 +78,25 @@ window.addEventListener('scroll', () => {
 });
 backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ======================
+// MENU DE PÁGINAS
+// ======================
+const pagesBtn      = document.getElementById('pages-btn');
+const pagesDropdown = document.getElementById('pages-dropdown');
+
+pagesBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    pagesDropdown.classList.toggle('open');
+    pagesBtn.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+    if (!pagesDropdown.contains(e.target) && e.target !== pagesBtn) {
+        pagesDropdown.classList.remove('open');
+        pagesBtn.classList.remove('open');
+    }
 });
 
 // ======================

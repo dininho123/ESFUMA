@@ -3,7 +3,6 @@
 
 # Tomcat compilados (gerados automaticamente)
 WEB-INF/classes/
-WEB-INF/lib/
 
 # Logs
 *.log

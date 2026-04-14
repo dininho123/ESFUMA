@@ -136,6 +136,11 @@ body {
     gap: 20px;
 }
 
+.logo a {
+    display: flex;
+    line-height: 0;
+}
+
 .logo img {
     height: 80px;
     transition: all 0.3s ease;
@@ -205,6 +210,169 @@ body {
 
 .menu a:hover::after {
     width: 100%;
+}
+
+/* ======================
+   HEADER RIGHT
+   ====================== */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.header-sep {
+    width: 1px;
+    height: 22px;
+    background: rgba(255,255,255,0.25);
+    margin: 0 10px;
+}
+
+/* ======================
+   MENU DE PÁGINAS
+   ====================== */
+.pages-menu {
+    position: relative;
+}
+
+.pages-btn {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: white;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.pages-btn:hover {
+    background: rgba(255,255,255,0.22);
+}
+
+.pages-chevron {
+    font-size: 10px;
+    opacity: 0.8;
+    transition: transform 0.2s;
+}
+
+.pages-btn.open .pages-chevron {
+    transform: rotate(180deg);
+}
+
+.pages-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    min-width: 230px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.pages-dropdown.open {
+    display: block;
+    animation: fadeDown 0.18s ease;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.pages-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #374151;
+    transition: background 0.15s;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.pages-item:last-child {
+    border-bottom: none;
+}
+
+.pages-item:hover {
+    background: #f9fafb;
+}
+
+.pages-item.current {
+    background: #f0fdf4;
+}
+
+.pages-item-icon {
+    width: 36px;
+    height: 36px;
+    background: #f0fdf4;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #27ae60;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.pages-item.current .pages-item-icon {
+    background: #27ae60;
+    color: white;
+}
+
+.pages-item-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pages-item-text span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1.2;
+}
+
+.pages-item-text small {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-top: 2px;
+}
+
+.pages-item-check {
+    color: #27ae60;
+    font-size: 12px;
+}
+
+/* Mobile: divisor e páginas */
+.menu-mobile-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 8px 0;
+}
+
+.menu-mobile-pages-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(255,255,255,0.45);
+    padding: 4px 20px 2px;
+}
+
+.menu-mobile a.current {
+    color: #f1c40f;
 }
 
 footer {
