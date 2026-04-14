@@ -211,6 +211,53 @@
     </div>
 </section>
 
+<section class="depoimentos reveal">
+    <div class="container">
+        <h3>O que dizem os pais</h3>
+        <p class="section-subtitle">A experiência de quem confia na ESFUMA</p>
+
+        <div class="depoimentos-grid">
+
+            <div class="depoimento-card">
+                <div class="depoimento-stars">★★★★★</div>
+                <p class="depoimento-texto">"Os meus filhos adoram os treinos! A equipa é super dedicada e profissional. Em poucos meses vi uma enorme evolução no meu filho."</p>
+                <div class="depoimento-autor">
+                    <div class="depoimento-avatar">MS</div>
+                    <div>
+                        <strong>Maria Silva</strong>
+                        <span>Mãe do João, Sub-10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="depoimento-card">
+                <div class="depoimento-stars">★★★★★</div>
+                <p class="depoimento-texto">"Excelente escola! Os valores que ensinam vão muito além do futebol. Respeito, disciplina e trabalho em equipa desde o primeiro dia."</p>
+                <div class="depoimento-autor">
+                    <div class="depoimento-avatar">RC</div>
+                    <div>
+                        <strong>Rui Costa</strong>
+                        <span>Pai da Ana, Sub-8</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="depoimento-card">
+                <div class="depoimento-stars">★★★★★</div>
+                <p class="depoimento-texto">"O meu filho não perdia um treino por nada! Ambiente familiar e muito competente. Recomendo a todos os pais da Madeira."</p>
+                <div class="depoimento-autor">
+                    <div class="depoimento-avatar">SG</div>
+                    <div>
+                        <strong>Sofia Gouveia</strong>
+                        <span>Mãe do Miguel, Sub-13</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 <section class="contacto reveal" id="contactos">
     <div class="container">
         <h3>Contactos</h3>
