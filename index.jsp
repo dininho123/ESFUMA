@@ -12,6 +12,9 @@
         <p>Formação desportiva dos 3 aos 19 anos.</p>
         <a href="#contactos" class="btn">Inscreve-te</a>
     </div>
+    <a href="#sobre" class="scroll-indicator" aria-label="Continuar">
+        <i class="fas fa-chevron-down"></i>
+    </a>
 </section>
 
 <section class="sobre reveal" id="sobre">

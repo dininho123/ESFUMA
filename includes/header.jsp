@@ -50,10 +50,16 @@
 
     <!-- Menu desktop -->
     <nav class="menu">
+    <% if (nomePagina.equals("index") || nomePagina.isEmpty()) { %>
         <a href="#inicio">Início</a>
         <a href="#sobre">Missão</a>
         <a href="#treinos">Escalões</a>
         <a href="#contactos">Contactos</a>
+    <% } else { %>
+        <a href="index.jsp">Início</a>
+        <a href="index.jsp#treinos">Escalões</a>
+        <a href="#contactos">Contactos</a>
+    <% } %>
     </nav>
 
     <!-- Botão hamburger (só aparece em mobile) -->
@@ -67,8 +73,14 @@
 
 <!-- Menu mobile (fora do header para ficar abaixo dele) -->
 <nav class="menu-mobile" id="menu-mobile">
-    <a href="#inicio">Início</a>
-    <a href="#sobre">Missão</a>
-    <a href="#treinos">Escalões</a>
-    <a href="#contactos">Contactos</a>
+    <% if (nomePagina.equals("index") || nomePagina.isEmpty()) { %>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Missão</a>
+        <a href="#treinos">Escalões</a>
+        <a href="#contactos">Contactos</a>
+    <% } else { %>
+        <a href="index.jsp">Início</a>
+        <a href="index.jsp#treinos">Escalões</a>
+        <a href="#contactos">Contactos</a>
+    <% } %>
 </nav>
