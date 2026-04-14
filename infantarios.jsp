@@ -97,6 +97,15 @@
 
         </div>
 
+        <div class="contacto-social">
+            <a href="https://www.facebook.com/esfumadeira" target="_blank" class="social-btn facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/esfumadeira/" target="_blank" class="social-btn instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+
         <a href="https://wa.me/351912562328" class="btn whatsapp">
             <i class="fab fa-whatsapp"></i> Falar no WhatsApp
         </a>

@@ -5,6 +5,14 @@
         <div class="footer-col">
             <h4>ESFUMA</h4>
             <p>EScola de FUtebol da MAdeira.<br>Formando homens, atletas e campeões desde 1998.</p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/esfumadeira" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/esfumadeira/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
         </div>
         <div class="footer-col">
             <h4>Links</h4>
@@ -81,6 +89,7 @@ const menuMobile  = document.getElementById('menu-mobile');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('aberto');
     menuMobile.classList.toggle('aberto');
+    menuMobile.style.top = header.offsetHeight + 'px';
 });
 
 // Fecha o menu ao clicar num link
@@ -189,6 +198,9 @@ window.addEventListener("scroll", () => {
     } else {
         header.classList.remove("scrolled");
     }
+
+    // Mantém o menu mobile colado ao header
+    menuMobile.style.top = header.offsetHeight + 'px';
 
     // Scroll spy — marca o link activo
     let current = "";

@@ -28,7 +28,7 @@
             </p>
             <div class="sobre-stats">
                 <div class="stat">
-                    <span class="stat-num" data-target="200" data-prefix="+">+200</span>
+                    <span class="stat-num" data-target="300" data-prefix="+">+300</span>
                     <span class="stat-label">Atletas</span>
                 </div>
                 <div class="stat">
@@ -240,6 +240,15 @@
                 <p>Caminho do Pilar<br>Funchal, Madeira</p>
             </div>
 
+        </div>
+
+        <div class="contacto-social">
+            <a href="https://www.facebook.com/esfumadeira" target="_blank" class="social-btn facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/esfumadeira/" target="_blank" class="social-btn instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
         </div>
 
         <a href="https://wa.me/351912562328" class="btn whatsapp">
